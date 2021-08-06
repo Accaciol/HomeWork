@@ -1,26 +1,53 @@
 <h4 class="text-center">Registre-se e venha aprender!</h4>
 
 
-<form class="form mt-4">
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
     <div class="form-group">
         <input placeholder="e-mail"
-        class="form-contol" />
+        class="form-contol" 
+        formControlName="email" />
+        
+        <!-- <app-mensagem
+        *ngnf="novoUsuarioForm.get('email')?.errors?.required &&
+        novoUsuarioForm.get('email')?.touched"
+        
+        mensagem="E-mail obrigatório"
+        >
+        </app-mensagem>
+        <app-mensagem
+        *ngnf="novoUsuarioForm.get('email')?.errors?.email &&
+        novoUsuarioForm.get('email')?.touched"
+        
+        mensagem="E-mail no formato incorreto"
+        >
+        </app-mensagem> -->
+        
     </div>
 
     <div class="form-group">
         <input placeholder="Nome Completo"
-        class="form-contol" />
+        class="form-contol" 
+        formControlName="fullName"/>
     </div>
+    <!-- <app-mensagem
+        *ngnf="novoUsuarioForm.get('fullName')?.errors &&
+        novoUsuarioForm.get('fullName')?.touched"
+        
+        mensagem="Nome incorreto"
+        >
+        </app-mensagem> -->
 
     <div class="form-group">
         <input placeholder="Usuário"
-        class="form-contol" />
+        class="form-contol" 
+        formControlName="userName"/>
     </div>
 
     <div class="form-group">
         <input placeholder="senha"
         type="password"
-        class="form-contol" />
+        class="form-contol" 
+        formControlName="password"/>
     </div>
 
     <button class="btn btn-primary btn-block">Cadastro</button>
